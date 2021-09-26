@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return authState === AuthState.SignedIn && user ? (
     <div className="App">
       <AmplifySignOut />
-      <h2>コンポーネント</h2>
+      <h2>ログイン後の画面</h2>
     </div>
 
   ) : (
