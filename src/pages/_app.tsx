@@ -1,16 +1,19 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react';
-import Amplify from 'aws-amplify';
+import Amplify, { I18n } from 'aws-amplify';
 import { AmplifySignOut, AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import awsconfig from '../aws-exports';
+import awsconfig from 'src/aws-exports';
+import { vocabularies } from 'src/assets/amplify/vocabularies'
 
+I18n.putVocabularies(vocabularies);
+I18n.setLanguage('ja');
 Amplify.configure(awsconfig);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [authState, setAuthState] = useState<AuthState>();
-  const [user, setUser] = useState<Object>();
+  const [user, setUser] = useState<any>();
   useEffect(() => {
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
@@ -21,10 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <div className="App">
       <AmplifySignOut />
       <h2>ログイン後の画面</h2>
+      <p>{user.attributes.email}</p>
     </div>
 
   ) : (
     <AmplifyAuthenticator />
   )
 }
-export default MyApp
+export default MyApp;
