@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react';
 import Amplify, { I18n } from 'aws-amplify';
-import { AmplifySignOut, AmplifyAuthenticator } from '@aws-amplify/ui-react';
+import { AmplifySignOut, AmplifyAuthenticator, AmplifySignUp } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import awsconfig from 'src/aws-exports';
 import { vocabularies } from 'src/assets/amplify/vocabularies'
@@ -11,7 +11,7 @@ I18n.putVocabularies(vocabularies);
 I18n.setLanguage('ja');
 Amplify.configure(awsconfig);
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   const [authState, setAuthState] = useState<AuthState>();
   const [user, setUser] = useState<any>();
   useEffect(() => {
@@ -28,7 +28,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     </div>
 
   ) : (
-    <AmplifyAuthenticator />
+    <AmplifyAuthenticator>
+      <AmplifySignUp
+        slot="sign-up"
+        formFields={[
+          { type: "username" },
+          { type: "password" },
+          { type: "email"}
+        ]}/>
+    </AmplifyAuthenticator>
   )
 }
 export default MyApp;
