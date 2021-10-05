@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --amplify-primary-color: #abe1fa;
+  --amplify-primary-tint: tomato;
+  --amplify-primary-shade: #e0573e;
+  --amplify-background-color: #e0faf4;
+}
+
+amplify-authenticator {
+  width: 100%;
+  background: blue;
+  padding: 5px;
+}
