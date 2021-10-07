@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 import Amplify, { I18n } from 'aws-amplify';
 import { AmplifySignOut, AmplifyAuthenticator, AmplifySignUp, AmplifyAuthContainer } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import awsmobile from '../aws-exports';
+import awsconfig from '../aws-exports';
 import { vocabularies } from 'src/assets/amplify/vocabularies'
 
 I18n.putVocabularies(vocabularies);
 I18n.setLanguage('ja');
-Amplify.configure(awsmobile);
+Amplify.configure(awsconfig);
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   const [authState, setAuthState] = useState<AuthState>();
