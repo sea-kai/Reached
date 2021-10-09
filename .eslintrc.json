@@ -19,14 +19,15 @@
     },
     "project": "./tsconfig.eslint.json"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "tailwindcss"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "next/core-web-vitals",
-    "prettier"
+    "prettier",
+    "plugin:tailwindcss/recommended"
   ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": 0,
