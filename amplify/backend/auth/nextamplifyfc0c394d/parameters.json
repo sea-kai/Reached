@@ -1,57 +1,39 @@
 {
-    "identityPoolName": "nextamplifyfc0c394d_identitypool_fc0c394d",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "nextamfc0c394d",
-    "userPoolName": "nextamplifyfc0c394d_userpool_fc0c394d",
-    "autoVerifiedAttributes": [
-        "email"
-    ],
-    "mfaConfiguration": "OFF",
-    "mfaTypes": [
-        "SMS Text Message"
-    ],
-    "smsAuthenticationMessage": "Your authentication code is {####}",
-    "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
-    "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
-    "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
-    "requiredAttributes": [
-        "email"
-    ],
-    "aliasAttributes": [],
-    "userpoolClientGenerateSecret": false,
-    "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-        "email"
-    ],
-    "userpoolClientReadAttributes": [
-        "email"
-    ],
-    "userpoolClientLambdaRole": "nextamfc0c394d_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
-    "sharedId": "fc0c394d",
-    "resourceName": "nextamplifyfc0c394d",
-    "authSelections": "identityPoolAndUserPool",
-    "authRoleArn": {
-        "Fn::GetAtt": [
-            "AuthRole",
-            "Arn"
-        ]
-    },
-    "unauthRoleArn": {
-        "Fn::GetAtt": [
-            "UnauthRole",
-            "Arn"
-        ]
-    },
-    "useDefault": "default",
-    "usernameAttributes": [
-        "email"
-    ],
-    "userPoolGroupList": [],
-    "serviceName": "Cognito",
-    "usernameCaseSensitive": false,
-    "dependsOn": []
+  "identityPoolName": "nextamplifyfc0c394d_identitypool_fc0c394d",
+  "allowUnauthenticatedIdentities": false,
+  "resourceNameTruncated": "nextamfc0c394d",
+  "userPoolName": "nextamplifyfc0c394d_userpool_fc0c394d",
+  "autoVerifiedAttributes": ["email"],
+  "mfaConfiguration": "OFF",
+  "mfaTypes": ["SMS Text Message"],
+  "smsAuthenticationMessage": "Your authentication code is {####}",
+  "smsVerificationMessage": "Your verification code is {####}",
+  "emailVerificationSubject": "Your verification code",
+  "emailVerificationMessage": "Your verification code is {####}",
+  "defaultPasswordPolicy": false,
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [],
+  "requiredAttributes": ["email"],
+  "aliasAttributes": [],
+  "userpoolClientGenerateSecret": false,
+  "userpoolClientRefreshTokenValidity": 30,
+  "userpoolClientWriteAttributes": ["email"],
+  "userpoolClientReadAttributes": ["email"],
+  "userpoolClientLambdaRole": "nextamfc0c394d_userpoolclient_lambda_role",
+  "userpoolClientSetAttributes": false,
+  "sharedId": "fc0c394d",
+  "resourceName": "nextamplifyfc0c394d",
+  "authSelections": "identityPoolAndUserPool",
+  "authRoleArn": {
+    "Fn::GetAtt": ["AuthRole", "Arn"]
+  },
+  "unauthRoleArn": {
+    "Fn::GetAtt": ["UnauthRole", "Arn"]
+  },
+  "useDefault": "default",
+  "usernameAttributes": ["email"],
+  "userPoolGroupList": [],
+  "serviceName": "Cognito",
+  "usernameCaseSensitive": false,
+  "dependsOn": []
 }
