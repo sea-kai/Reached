@@ -11,7 +11,7 @@ I18n.putVocabularies(vocabularies);
 I18n.setLanguage('ja');
 Amplify.configure(awsconfig);
 
-function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
+function Login({ Component, pageProps }: AppProps): React.ReactElement {
   const [authState, setAuthState] = useState<AuthState>();
   const [user, setUser] = useState<any>();
   useEffect(() => {
@@ -41,4 +41,4 @@ function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
       </AmplifyAuthContainer>
   )
 }
-export default MyApp;
+export default Login;
