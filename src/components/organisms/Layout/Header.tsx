@@ -23,6 +23,11 @@ export const Header: VFC = () => {
                 勉強会
               </a>
             </Link>
+            <Link href="/Login">
+              <a className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded">
+                ログイン
+              </a>
+            </Link>
           </div>
         </nav>
       </header>

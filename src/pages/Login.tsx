@@ -1,5 +1,3 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
 import Amplify, { I18n } from 'aws-amplify';
 import {
@@ -11,12 +9,15 @@ import {
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import awsconfig from 'src/aws-exports';
 import { vocabularies } from 'src/assets/amplify/vocabularies';
+import { Layout } from 'src/components/templates/Layout';
+
+
 
 I18n.putVocabularies(vocabularies);
 I18n.setLanguage('ja');
 Amplify.configure(awsconfig);
 
-export default function Login(): React.ReactElement {
+const Login = () => {
   const [authState, setAuthState] = useState<AuthState>();
   const [user, setUser] = useState<any>();
   useEffect(() => {
@@ -25,24 +26,29 @@ export default function Login(): React.ReactElement {
       setUser(authData);
     });
   }, []);
-  return authState === AuthState.SignedIn && user ? (
+  return (
+    authState === AuthState.SignedIn && user ? (
     <div className="App">
       <AmplifySignOut />
       <h2>ログイン後の画面</h2>
       <p>{user.attributes.email}</p>
     </div>
   ) : (
-    <AmplifyAuthContainer>
-      <AmplifyAuthenticator>
-        <AmplifySignUp
-          slot="sign-up"
-          formFields={[
-            { type: 'username' },
-            { type: 'password' },
-            { type: 'email' },
-          ]}
-        />
-      </AmplifyAuthenticator>
-    </AmplifyAuthContainer>
+    <Layout title='Login'>
+      <AmplifyAuthContainer>
+          <AmplifyAuthenticator>
+            <AmplifySignUp
+              slot="sign-up"
+              formFields={[
+                { type: 'username' },
+                { type: 'password' },
+                { type: 'email' },
+              ]} />
+          </AmplifyAuthenticator>
+      </AmplifyAuthContainer>
+      </Layout>
+      )
   );
 }
+
+export default Login;
