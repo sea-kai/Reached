@@ -1,5 +1,12 @@
 import React, { VFC } from "react";
+import { Layout } from "src/components/templates/Layout";
 
-export const StudyGroup: VFC = () => {
-  return <p>勉強会ページです</p>
+const StudyGroup: VFC = () => {
+  return (
+    <Layout title="StudyGroup">
+      <p>勉強会ページです</p>
+    </Layout>
+  )
 }
+
+export default StudyGroup;

@@ -1,5 +1,13 @@
 import React, { VFC } from "react";
+import { Layout } from "src/components/templates/Layout";
 
-export const OpenSpace: VFC = () => {
-  return <p>質問広場ページです</p>
+const OpenSpace: VFC = () => {
+  return (
+    <Layout title='OpenSpace'>
+      <p>質問広場ページです</p>
+    </Layout>
+    )
+
 }
+
+export default OpenSpace;
