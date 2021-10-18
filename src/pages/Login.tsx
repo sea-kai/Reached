@@ -28,7 +28,7 @@ const Login = () => {
   }, []);
   return (
     authState === AuthState.SignedIn && user ? (
-    <div className="App">
+    <div>
       <AmplifySignOut />
       <h2>ログイン後の画面</h2>
       <p>{user.attributes.email}</p>
