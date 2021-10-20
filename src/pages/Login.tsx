@@ -17,7 +17,7 @@ I18n.putVocabularies(vocabularies);
 I18n.setLanguage('ja');
 Amplify.configure(awsconfig);
 
-const Login = () => {
+const Login: any = () => {
   const [authState, setAuthState] = useState<AuthState>();
   const [user, setUser] = useState<any>();
   useEffect(() => {
