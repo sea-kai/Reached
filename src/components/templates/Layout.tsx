@@ -12,10 +12,10 @@ export const Layout = ({children, title = 'Reached'}: LayoutType): React.ReactEl
       <title>{title}</title>
     </Head>
     <Header />
-    <main className="flex flex-col flex-1 justify-center items-center w-screen">
+    <main className="flex flex-col flex-1 justify-center items-center w-screen h-screen">
       {children}
     </main>
-          <footer className="flex justify-center items-center w-full h-12 border-t">
+          <footer className="flex justify-center items-start w-full h-12 border-t">
         <a
           className="flex items-center"
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
