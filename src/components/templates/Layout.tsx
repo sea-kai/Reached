@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Head from 'next/head';
-import Image from 'next/Image';
 
 import Header from 'src/components/organisms/Layout/Header'
 import { LayoutType } from "src/types";
@@ -23,7 +23,7 @@ export const Layout = ({children, title = 'Reached'}: LayoutType): React.ReactEl
           rel="noopener noreferrer"
         >
           Powered by{" "}
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </a>
   </footer>
     </div>
