@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Amplify, { I18n } from 'aws-amplify';
 import {
   AmplifySignOut,
@@ -38,7 +38,7 @@ const Login: any = () => {
       <AmplifyAuthContainer>
           <AmplifyAuthenticator>
             <AmplifySignUp
-              slot="sign-up"
+              slot='sign-up'
               formFields={[
                 { type: 'username' },
                 { type: 'password' },
