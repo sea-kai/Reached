@@ -1,5 +1,5 @@
-import React, { VFC } from "react";
-import { Layout } from "src/components/templates/Layout";
+import React, { VFC } from 'react';
+import { Layout } from 'src/components/templates/Layout';
 
 const OpenSpace: VFC = () => {
   return (
