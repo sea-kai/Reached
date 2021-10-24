@@ -20,12 +20,14 @@ Amplify.configure(awsconfig);
 const Login: any = () => {
   const [authState, setAuthState] = useState<AuthState>();
   const [user, setUser] = useState<any>();
+
   useEffect(() => {
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
     });
   }, []);
+
   return (
     authState === AuthState.SignedIn && user ? (
     <div>

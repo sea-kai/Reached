@@ -1,0 +1,28 @@
+type Post
+  @model
+  @key(
+    name: "SortByCreatedAt"
+    fields: ["status", "createdAt"]
+    queryField: "listPostsSortedByCreatedAt"
+  ) {
+  id: ID!
+  content: String!
+  owner: String!
+  image: String
+  status: PostStatus!
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  createdAt: AWSDateTime
+}
+
+enum PostStatus {
+  published
+  unpublished
+}
+
+type Comment @model @key(name: "byPost", fields: ["postId", "content"]) {
+  id: ID!
+  postId: ID!
+  content: String!
+  owner: String!
+  post: Post @connection(fields: ["postId"])
+}
