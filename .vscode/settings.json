@@ -12,7 +12,7 @@
     "source.fixAll.eslint": true
   },
   "eslint.format.enable": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false

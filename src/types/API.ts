@@ -5,7 +5,7 @@
 export type CreatePostInput = {
   id?: string | null,
   content: string,
-  owner: string,
+  owner: string | undefined,
   image?: string | null,
   status: PostStatus,
   createdAt?: string | null,
@@ -117,9 +117,9 @@ export type DeletePostInput = {
 
 export type CreateCommentInput = {
   id?: string | null,
-  postId: string,
+  postId: string | undefined,
   content: string,
-  owner: string,
+  owner: string | undefined,
 };
 
 export type ModelCommentConditionInput = {
@@ -583,3 +583,36 @@ export type OnDeleteCommentSubscription = {
     updatedAt: string,
   } | null,
 };
+
+export type User = {
+  id: string,
+  username: string,
+  attributes: {
+    email: string
+    sub: string
+  }
+}
+
+export type OnCreatePostSubscriptionData = {
+  value: {
+    data: OnCreatePostSubscription
+  }
+}
+
+export type OnDeletePostSubscriptionData = {
+  value: {
+    data: OnDeletePostSubscription
+  }
+}
+
+export type OnCreateCommentSubscriptionData = {
+  value: {
+    data: OnCreateCommentSubscription
+  }
+}
+
+export type OnDeleteCommentSubscriptionData = {
+  value: {
+    data: OnDeleteCommentSubscription
+  }
+}
