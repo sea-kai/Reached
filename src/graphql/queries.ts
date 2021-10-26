@@ -11,14 +11,6 @@ export const getPost = /* GraphQL */ `
       image
       status
       comments {
-        items {
-          id
-          postId
-          content
-          owner
-          createdAt
-          updatedAt
-        }
         nextToken
       }
       createdAt
@@ -39,9 +31,6 @@ export const listPosts = /* GraphQL */ `
         owner
         image
         status
-        comments {
-          nextToken
-        }
         createdAt
         updatedAt
       }
@@ -62,9 +51,6 @@ export const getComment = /* GraphQL */ `
         owner
         image
         status
-        comments {
-          nextToken
-        }
         createdAt
         updatedAt
       }
@@ -85,15 +71,6 @@ export const listComments = /* GraphQL */ `
         postId
         content
         owner
-        post {
-          id
-          content
-          owner
-          image
-          status
-          createdAt
-          updatedAt
-        }
         createdAt
         updatedAt
       }
@@ -124,9 +101,6 @@ export const listPostsSortedByCreatedAt = /* GraphQL */ `
         owner
         image
         status
-        comments {
-          nextToken
-        }
         createdAt
         updatedAt
       }

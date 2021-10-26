@@ -2,14 +2,15 @@ projects:
   OpenSpaceAPI:
     schemaPath: src/graphql/schema.json
     includes:
-      - OpenSpace.ts
+      - src/graphql/**/*.ts
     excludes:
       - ./amplify/**
     extensions:
       amplify:
         codeGenTarget: typescript
-        generatedFileName: src/API.ts
-        docsFilePath: .
+        generatedFileName: src/types/API.ts
+        docsFilePath: src/graphql
+        maxDepth: 2
 extensions:
   amplify:
     version: 3
