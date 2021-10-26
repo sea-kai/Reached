@@ -11,14 +11,6 @@ export const onCreatePost = /* GraphQL */ `
       image
       status
       comments {
-        items {
-          id
-          postId
-          content
-          owner
-          createdAt
-          updatedAt
-        }
         nextToken
       }
       createdAt
@@ -35,14 +27,6 @@ export const onUpdatePost = /* GraphQL */ `
       image
       status
       comments {
-        items {
-          id
-          postId
-          content
-          owner
-          createdAt
-          updatedAt
-        }
         nextToken
       }
       createdAt
@@ -59,14 +43,6 @@ export const onDeletePost = /* GraphQL */ `
       image
       status
       comments {
-        items {
-          id
-          postId
-          content
-          owner
-          createdAt
-          updatedAt
-        }
         nextToken
       }
       createdAt
@@ -87,9 +63,6 @@ export const onCreateComment = /* GraphQL */ `
         owner
         image
         status
-        comments {
-          nextToken
-        }
         createdAt
         updatedAt
       }
@@ -111,9 +84,6 @@ export const onUpdateComment = /* GraphQL */ `
         owner
         image
         status
-        comments {
-          nextToken
-        }
         createdAt
         updatedAt
       }
@@ -135,9 +105,6 @@ export const onDeleteComment = /* GraphQL */ `
         owner
         image
         status
-        comments {
-          nextToken
-        }
         createdAt
         updatedAt
       }
