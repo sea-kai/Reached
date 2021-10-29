@@ -2,6 +2,29 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
+export type Post = {
+  __typename: "Post",
+  id?: string,
+  content?: string,
+  owner?: string,
+  image?: string | null,
+  status?: PostStatus,
+  comments?: ModelCommentConnection | null, // nullを許容
+  createdAt?: string | null,
+  updatedAt?: string
+}
+
+export type Comment = {
+  __typename: "Comment",
+  id?: string,
+  postId?: string,
+  content?: string,
+  owner?: string,
+  post?: Post | null, // nullを許容
+  createdAt?: string,
+  updatedAt?: string,
+}
+
 export type CreatePostInput = {
   id?: string | null,
   content: string,
@@ -73,33 +96,10 @@ export type ModelPostStatusInput = {
   ne?: PostStatus | null,
 };
 
-export type Post = {
-  __typename: "Post",
-  id: string,
-  content: string,
-  owner: string,
-  image?: string | null,
-  status: PostStatus,
-  comments?: ModelCommentConnection | null,
-  createdAt?: string | null,
-  updatedAt: string,
-};
-
 export type ModelCommentConnection = {
   __typename: "ModelCommentConnection",
   items?:  Array<Comment | null > | null,
   nextToken?: string | null,
-};
-
-export type Comment = {
-  __typename: "Comment",
-  id: string,
-  postId: string,
-  content: string,
-  owner: string,
-  post?: Post | null,
-  createdAt: string,
-  updatedAt: string,
 };
 
 export type UpdatePostInput = {
