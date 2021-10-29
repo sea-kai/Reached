@@ -14,13 +14,13 @@
     "test-all": "npx yarn-run-all lint check-types format lint:fix"
   },
   "dependencies": {
-    "@aws-amplify/api": "^4.0.21",
-    "@aws-amplify/core": "^4.3.3",
-    "@aws-amplify/pubsub": "^4.1.13",
-    "@aws-amplify/ui-react": "^1.2.18",
+    "@aws-amplify/api": "^4.0.22",
+    "@aws-amplify/core": "^4.3.4",
+    "@aws-amplify/pubsub": "^4.1.14",
+    "@aws-amplify/ui-react": "^1.2.22",
     "@headlessui/react": "^1.4.1",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
-    "aws-amplify": "^4.3.0",
+    "aws-amplify": "^4.3.4",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
