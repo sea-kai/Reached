@@ -2,10 +2,33 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
+export type Post = {
+  __typename: "Post",
+  id?: string,
+  content?: string,
+  owner?: string,
+  image?: string | null,
+  status?: PostStatus,
+  comments?: ModelCommentConnection | null, // nullを許容
+  createdAt?: string | null,
+  updatedAt?: string
+}
+
+export type Comment = {
+  __typename: "Comment",
+  id?: string,
+  postId?: string,
+  content?: string,
+  owner?: string,
+  post?: Post | null, // nullを許容
+  createdAt?: string,
+  updatedAt?: string,
+}
+
 export type CreatePostInput = {
   id?: string | null,
   content: string,
-  owner: string,
+  owner: string | undefined,
   image?: string | null,
   status: PostStatus,
   createdAt?: string | null,
@@ -73,33 +96,10 @@ export type ModelPostStatusInput = {
   ne?: PostStatus | null,
 };
 
-export type Post = {
-  __typename: "Post",
-  id: string,
-  content: string,
-  owner: string,
-  image?: string | null,
-  status: PostStatus,
-  comments?: ModelCommentConnection | null,
-  createdAt?: string | null,
-  updatedAt: string,
-};
-
 export type ModelCommentConnection = {
   __typename: "ModelCommentConnection",
   items?:  Array<Comment | null > | null,
   nextToken?: string | null,
-};
-
-export type Comment = {
-  __typename: "Comment",
-  id: string,
-  postId: string,
-  content: string,
-  owner: string,
-  post?: Post | null,
-  createdAt: string,
-  updatedAt: string,
 };
 
 export type UpdatePostInput = {
@@ -117,9 +117,9 @@ export type DeletePostInput = {
 
 export type CreateCommentInput = {
   id?: string | null,
-  postId: string,
+  postId: string | undefined,
   content: string,
-  owner: string,
+  owner: string | undefined,
 };
 
 export type ModelCommentConditionInput = {
@@ -583,3 +583,36 @@ export type OnDeleteCommentSubscription = {
     updatedAt: string,
   } | null,
 };
+
+export type User = {
+  id: string,
+  username: string,
+  attributes: {
+    email: string
+    sub: string
+  }
+}
+
+export type OnCreatePostSubscriptionData = {
+  value: {
+    data: OnCreatePostSubscription
+  }
+}
+
+export type OnDeletePostSubscriptionData = {
+  value: {
+    data: OnDeletePostSubscription
+  }
+}
+
+export type OnCreateCommentSubscriptionData = {
+  value: {
+    data: OnCreateCommentSubscription
+  }
+}
+
+export type OnDeleteCommentSubscriptionData = {
+  value: {
+    data: OnDeleteCommentSubscription
+  }
+}

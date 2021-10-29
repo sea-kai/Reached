@@ -101,6 +101,13 @@ export const listPostsSortedByCreatedAt = /* GraphQL */ `
         owner
         image
         status
+        comments {
+          items {
+            id
+            postId
+            content
+            owner
+          }
         createdAt
         updatedAt
       }

@@ -7,15 +7,15 @@ import {
   AmplifyAuthContainer,
 } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import awsconfig from 'src/aws-exports';
 import { vocabularies } from 'src/assets/amplify/vocabularies';
 import { Layout } from 'src/components/templates/Layout';
+import awsmobile from 'src/aws-exports';
 
 
 
 I18n.putVocabularies(vocabularies);
 I18n.setLanguage('ja');
-Amplify.configure(awsconfig);
+Amplify.configure(awsmobile);
 
 const Login: any = () => {
   const [authState, setAuthState] = useState<AuthState>();
@@ -30,11 +30,12 @@ const Login: any = () => {
 
   return (
     authState === AuthState.SignedIn && user ? (
+    <Layout title='Login'>
     <div>
       <AmplifySignOut />
       <h2>ログイン後の画面</h2>
-      <p>{user.attributes.email}</p>
     </div>
+    </Layout>
   ) : (
     <Layout title='Login'>
       <AmplifyAuthContainer>
@@ -48,8 +49,8 @@ const Login: any = () => {
               ]} />
           </AmplifyAuthenticator>
       </AmplifyAuthContainer>
-      </Layout>
-      )
+    </Layout>
+    )
   );
 }
 
