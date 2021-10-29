@@ -28,23 +28,11 @@ export const InputForm: React.FC = () => {
     }
   }
   return (
-    <div>
-    <input style={{
-      border: 'solid 1px #ddd',
-      padding: 10,
-      borderRadius: 4,
-      fontSize: 18,
-      WebkitAppearance: 'none',
-      color: '#333'
-    }} value={content} type="text" placeholder="please write todo" onChange={e => setContent(e.target.value)} />
-    <button style={{
-      padding: 10,
-      background: '#F06292',
-      color: '#eee',
-      borderRadius: 4,
-      fontSize: 18,
-      WebkitAppearance: 'none'
-    }} onClick={() => handleCreatePost(content)}>add Question</button>
+    <div className="flex flex-col m-2 w-8/12 text-lg appearance-none">
+      <textarea className='p-3 m-2 text-gray-700 rounded-xl border border-gray-400 border-solid' value={content} placeholder="質問を記入してください" onChange={e => setContent(e.target.value)} />
+      <button className='self-end p-3 m-2 w-40 text-gray-50 bg-blue-400 rounded-md appearance-none' onClick={() => handleCreatePost(content)}>
+        質問を投稿
+      </button>
     </div>
   )
 }
