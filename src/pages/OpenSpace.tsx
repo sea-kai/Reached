@@ -1,7 +1,7 @@
 import React, { VFC } from 'react';
 import { Layout } from 'src/components/templates/Layout';
 import { InputForm } from 'src/components/atoms/InputForm'
-import { PostList } from 'src/components/molecules/PostList';
+import { PostList } from 'src/components/organisms/PostList';
 
 const OpenSpace: VFC = () => {
   return (

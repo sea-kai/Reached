@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import awsmobile from 'src/aws-exports';
 import { listPostsSortedByCreatedAt } from 'src/graphql/queries';
 import { Post, ListPostsSortedByCreatedAtQuery,} from 'src/types/API';
+import { PostItem } from "src/components/molecules/PostItem";
 
 Amplify.configure(awsmobile);
 API.configure(awsmobile);
@@ -68,9 +69,7 @@ export const PostList:React.FC = () => {
     <div>
       {posts?.map((post: Post) => {
         return (
-          <text key={post.id}>
-          {post.content}
-          </text>
+          <PostItem key={post.id} post={post} />
         )
       })
     }
