@@ -108,6 +108,7 @@ export const listPostsSortedByCreatedAt = /* GraphQL */ `
             content
             owner
           }
+        }
         createdAt
         updatedAt
       }
