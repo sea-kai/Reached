@@ -30,7 +30,7 @@ export const InputForm: React.FC = () => {
   return (
     <div className="flex flex-col m-2 w-8/12 text-lg appearance-none">
       <textarea className='p-3 m-2 text-gray-700 rounded-xl border border-gray-400 border-solid' value={content} placeholder="質問を記入してください" onChange={e => setContent(e.target.value)} />
-      <button className='self-end p-3 m-2 w-40 text-gray-50 bg-blue-400 rounded-md appearance-none' onClick={() => handleCreatePost(content)}>
+      <button className='self-end btn-blue' onClick={() => handleCreatePost(content)}>
         質問を投稿
       </button>
     </div>
