@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-blue {
+    @apply p-3 m-2 w-40 text-gray-50 bg-blue-400 rounded-md appearance-none;
+  }
+  .btn-blue:hover {
+    @apply bg-blue-600;
+  }
+}
+
 :root {
   --amplify-primary-color: #abe1fa;
   --amplify-primary-tint: tomato;
