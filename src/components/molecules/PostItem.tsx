@@ -70,20 +70,20 @@ export const PostItem: React.FC<PostItemProps> = ({ post }) => {
   }, [])
 
   return (
-    <div className='text-xl bg-white rounded-md border-4 border-solid'>
-      {post.content}
-      <CommentForm postId={post?.id}/>
+    <div className='m-4 rounded-md'>
+      <div className='p-2 h-32 text-4xl bg-white border-2 border-gray-300'>
+        {post.content}
+      </div>
       <div>
         {comments?.map((comment) => {
           return (
-            <div key={comment.id}>
-              <div>
-                {comment.content}
-              </div>
+            <div className='pl-2 h-8 text-xl bg-gray-50 border-2' key={comment.id}>
+              {comment.content}
             </div>
           )
         })}
       </div>
+      <CommentForm postId={post?.id}/>
     </div>
   )
 }

@@ -31,13 +31,11 @@ export const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
   }
 
   return (
-    <div>
-        <textarea value={content}  placeholder='コメントを入力' onChange={e => setContent(e.target.value)}  className='text-lg text-gray-800 border-solid'/>
-        <div className='bg-green-200'>
-          <button  type="submit" onClick={() => handleCreateComment(content)}>
-            Comment
-          </button>
-        </div>
+    <div className='flex mt-2'>
+        <textarea className='w-full text-lg text-gray-800 rounded-tr-2xl rounded-bl-2xl border-2' value={content}  placeholder='回答を入力してください' onChange={e => setContent(e.target.value)}  />
+        <button className='self-end btn-blue' type="submit" onClick={() => handleCreateComment(content)}>
+          回答
+        </button>
     </div>
   )
 }
