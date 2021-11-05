@@ -66,7 +66,7 @@ export const PostList:React.FC = () => {
   }, [])
 
   return (
-    <div>
+    <div  className='w-3/4'>
       {posts?.map((post: Post) => {
         return (
           <PostItem key={post.id} post={post} />
