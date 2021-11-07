@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react"
 import API, { graphqlOperation } from "@aws-amplify/api"
 import { deletePost } from "../../graphql/mutations"
-import {
-  Post,
-  Comment,
-  OnCreateCommentSubscriptionData,
-  OnDeleteCommentSubscriptionData
-} from "src/types/API"
+import {Post,Comment,OnCreateCommentSubscriptionData,OnDeleteCommentSubscriptionData} from "src/types/API"
 
 import { onCreateComment, onDeleteComment } from "../../graphql/subscriptions"
 import { CommentForm } from 'src/components/atoms/CommentForm';
