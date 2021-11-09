@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Amplify, { I18n } from 'aws-amplify';
-import {
-  AmplifySignOut,
-  AmplifyAuthenticator,
-  AmplifySignUp,
-  AmplifyAuthContainer,
-} from '@aws-amplify/ui-react';
+import { AmplifySignOut, AmplifyAuthenticator, AmplifySignUp, AmplifyAuthContainer } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import { vocabularies } from 'src/assets/amplify/vocabularies';
 import { Layout } from 'src/components/templates/Layout';
 import awsmobile from 'src/aws-exports';
-
 
 
 I18n.putVocabularies(vocabularies);
