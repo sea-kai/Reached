@@ -584,7 +584,7 @@ export type OnDeleteCommentSubscription = {
   } | null,
 };
 
-export type User = {
+export interface User {
   id: string,
   username: string,
   attributes: {
