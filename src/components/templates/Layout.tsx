@@ -11,7 +11,7 @@ export const Layout = ({children, title = 'Reached'}: LayoutType): React.ReactEl
         <title>{title}</title>
       </Head>
       <Header />
-      <main className='flex flex-col flex-1 mt-32 w-screen '>
+      <main className='flex flex-col flex-1 mt-32 w-screen'>
         {children}
       </main>
       <footer className='flex justify-center items-start w-full h-12 border-t'>
