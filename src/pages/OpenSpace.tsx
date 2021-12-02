@@ -26,7 +26,7 @@ const OpenSpace: VFC = () => {
         <div className='flex flex-col items-center'>
           <Description title={OpenSpaceDescription.title} text={OpenSpaceDescription.text} />
           <h1>{currentUserName}</h1>
-          <InputForm/>
+          <InputForm userName={currentUserName}/>
           <PostList />
         </div>
       </div>
