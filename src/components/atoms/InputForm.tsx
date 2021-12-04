@@ -10,7 +10,11 @@ Amplify.configure(awsmobile);
 API.configure(awsmobile);
 PubSub.configure(awsmobile);
 
-export const InputForm = ( userName ) => {
+interface Props {
+  userName: string;
+}
+
+export const InputForm: React.VFC<Props> = ({ userName }) => {
   const [content, setContent] = useState<string>("");
 
   const handleCreatePost = async (content: string) => {
