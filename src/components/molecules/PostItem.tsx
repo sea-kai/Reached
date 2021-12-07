@@ -66,9 +66,13 @@ export const PostItem: React.FC<PostItemProps> = ({ post }) => {
 
   return (
     <div className='m-4 rounded-md'>
-      <div className='p-2 h-32 text-4xl bg-white border-2 border-gray-300'>
-        {post.content}
-        {post.owner}
+      <div className='p-2 h-32 bg-white border-2 border-gray-300'>
+        <div className='text-4xl'>
+          {post.content}
+        </div>
+        <div className='text-xl'>
+          {post.owner}
+        </div>
       </div>
       <div>
         {comments?.map((comment) => {
