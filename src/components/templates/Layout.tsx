@@ -6,7 +6,7 @@ import { LayoutType } from 'src/types';
 
 export const Layout = ({children, title = 'Reached'}: LayoutType): React.ReactElement=> {
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen font-mono text-sm text-gray-600 bg-green-50'>
+    <div className='flex flex-col justify-center items-center min-h-screen font-mono text-sm text-gray-600 bg-white'>
       <Head>
         <title>{title}</title>
       </Head>

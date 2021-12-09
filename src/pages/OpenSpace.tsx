@@ -24,8 +24,11 @@ const OpenSpace: VFC = () => {
     <Layout title='OpenSpace'>
       <div>
         <div className='flex flex-col items-center'>
-          <Description title={OpenSpaceDescription.title} text={OpenSpaceDescription.text} />
-          <h1>{currentUserName}</h1>
+          <div className='flex flex-row justify-between'>
+            <Description title={OpenSpaceDescription.title} text={OpenSpaceDescription.text} />
+            <img src='/Question.PNG' alt='question' width='40%'/>
+          </div>
+
           <InputForm userName={currentUserName}/>
           <PostList />
         </div>
