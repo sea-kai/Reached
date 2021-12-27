@@ -78,6 +78,143 @@ export const listComments = /* GraphQL */ `
     }
   }
 `;
+export const getEvent = /* GraphQL */ `
+  query GetEvent($id: ID!) {
+    getEvent(id: $id) {
+      id
+      owner
+      title
+      Description
+      Date
+      Time_start
+      Time_end
+      member {
+        nextToken
+      }
+      post {
+        nextToken
+      }
+      theme
+      Municipal
+      createdAt
+      status
+      updatedAt
+    }
+  }
+`;
+export const listEvents = /* GraphQL */ `
+  query ListEvents(
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        owner
+        title
+        Description
+        Date
+        Time_start
+        Time_end
+        theme
+        Municipal
+        createdAt
+        status
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getMember = /* GraphQL */ `
+  query GetMember($id: ID!) {
+    getMember(id: $id) {
+      id
+      eventId
+      userName
+      event {
+        id
+        owner
+        title
+        Description
+        Date
+        Time_start
+        Time_end
+        theme
+        Municipal
+        createdAt
+        status
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listMembers = /* GraphQL */ `
+  query ListMembers(
+    $filter: ModelMemberFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMembers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        eventId
+        userName
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getEventPost = /* GraphQL */ `
+  query GetEventPost($id: ID!) {
+    getEventPost(id: $id) {
+      id
+      eventId
+      username
+      content
+      event {
+        id
+        owner
+        title
+        Description
+        Date
+        Time_start
+        Time_end
+        theme
+        Municipal
+        createdAt
+        status
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listEventPosts = /* GraphQL */ `
+  query ListEventPosts(
+    $filter: ModelEventPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEventPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        eventId
+        username
+        content
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listPostsSortedByCreatedAt = /* GraphQL */ `
   query ListPostsSortedByCreatedAt(
     $status: PostStatus
@@ -101,15 +238,42 @@ export const listPostsSortedByCreatedAt = /* GraphQL */ `
         owner
         image
         status
-        comments {
-          items {
-            id
-            postId
-            content
-            owner
-          }
-        }
         createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const listEventsSortedByCreatedAt = /* GraphQL */ `
+  query ListEventsSortedByCreatedAt(
+    $status: PostStatus
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEventsSortedByCreatedAt(
+      status: $status
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        owner
+        title
+        Description
+        Date
+        Time_start
+        Time_end
+        theme
+        Municipal
+        createdAt
+        status
         updatedAt
       }
       nextToken
