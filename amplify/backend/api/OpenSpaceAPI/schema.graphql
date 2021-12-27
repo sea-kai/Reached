@@ -26,3 +26,42 @@ type Comment @model @key(name: "byPost", fields: ["postId", "content"]) {
   owner: String!
   post: Post @connection(fields: ["postId"])
 }
+
+type Event
+  @model
+  @key(
+    name: "SortByCreatedAt"
+    fields: ["status", "createdAt"]
+    queryField: "listEventsSortedByCreatedAt"
+  ) {
+    id: ID!
+    owner: String!
+    title: String!
+    Description: String
+    Date: AWSDate!
+    Time_start: AWSTime
+    Time_end: AWSTime
+    member: [Member] @connection(keyName: "byEvent", fields: ["id"])
+    post: [EventPost] @connection(keyName: "byEvent", fields: ["id"])
+    theme: String!
+    Municipal: String
+    createdAt: AWSDateTime
+    status: PostStatus
+  }
+
+  type Member @model @key(name: "byEvent", fields: ["eventId", "userName"]
+  ){
+    id: ID!
+    eventId: ID!
+    userName: String!
+    event: Event @connection(fields: ["eventId"])
+  }
+
+type EventPost @model @key(name: "byEvent", fields: ["eventId", "content"]
+  ){
+    id: ID!
+    eventId: ID!
+    username: String
+    content: String!
+    event: Event @connection (fields: ["eventId"])
+  }

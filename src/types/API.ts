@@ -9,10 +9,10 @@ export type Post = {
   owner?: string,
   image?: string | null,
   status?: PostStatus,
-  comments?: ModelCommentConnection | null, // nullを許容
+  comments?: ModelCommentConnection | null,
   createdAt?: string | null,
-  updatedAt?: string
-}
+  updatedAt?: string,
+};
 
 export type Comment = {
   __typename: "Comment",
@@ -20,10 +20,10 @@ export type Comment = {
   postId?: string,
   content?: string,
   owner?: string,
-  post?: Post | null, // nullを許容
+  post?: Post | null,
   createdAt?: string,
   updatedAt?: string,
-}
+};
 
 export type CreatePostInput = {
   id?: string | null,
@@ -102,6 +102,7 @@ export type ModelCommentConnection = {
   nextToken?: string | null,
 };
 
+
 export type UpdatePostInput = {
   id: string,
   content?: string | null,
@@ -158,6 +159,156 @@ export type DeleteCommentInput = {
   id: string,
 };
 
+export type CreateEventInput = {
+  id?: string | null,
+  owner: string,
+  title: string,
+  Description?: string | null,
+  Date: string,
+  Time_start?: string | null,
+  Time_end?: string | null,
+  theme: string,
+  Municipal?: string | null,
+  createdAt?: string | null,
+  status?: PostStatus | null,
+};
+
+export type ModelEventConditionInput = {
+  owner?: ModelStringInput | null,
+  title?: ModelStringInput | null,
+  Description?: ModelStringInput | null,
+  Date?: ModelStringInput | null,
+  Time_start?: ModelStringInput | null,
+  Time_end?: ModelStringInput | null,
+  theme?: ModelStringInput | null,
+  Municipal?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  status?: ModelPostStatusInput | null,
+  and?: Array< ModelEventConditionInput | null > | null,
+  or?: Array< ModelEventConditionInput | null > | null,
+  not?: ModelEventConditionInput | null,
+};
+
+export type Event = {
+  __typename: "Event",
+  id: string,
+  owner: string,
+  title: string,
+  Description?: string | null,
+  Date: string,
+  Time_start?: string | null,
+  Time_end?: string | null,
+  member?: ModelMemberConnection | null,
+  post?: ModelEventPostConnection | null,
+  theme: string,
+  Municipal?: string | null,
+  createdAt?: string | null,
+  status?: PostStatus | null,
+  updatedAt: string,
+};
+
+export type ModelMemberConnection = {
+  __typename: "ModelMemberConnection",
+  items?:  Array<Member | null > | null,
+  nextToken?: string | null,
+};
+
+export type Member = {
+  __typename: "Member",
+  id: string,
+  eventId: string,
+  userName: string,
+  event?: Event | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type ModelEventPostConnection = {
+  __typename: "ModelEventPostConnection",
+  items?:  Array<EventPost | null > | null,
+  nextToken?: string | null,
+};
+
+export type EventPost = {
+  __typename: "EventPost",
+  id: string,
+  eventId: string,
+  username?: string | null,
+  content: string,
+  event?: Event | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateEventInput = {
+  id: string,
+  owner?: string | null,
+  title?: string | null,
+  Description?: string | null,
+  Date?: string | null,
+  Time_start?: string | null,
+  Time_end?: string | null,
+  theme?: string | null,
+  Municipal?: string | null,
+  createdAt?: string | null,
+  status?: PostStatus | null,
+};
+
+export type DeleteEventInput = {
+  id: string,
+};
+
+export type CreateMemberInput = {
+  id?: string | null,
+  eventId: string,
+  userName: string,
+};
+
+export type ModelMemberConditionInput = {
+  eventId?: ModelIDInput | null,
+  userName?: ModelStringInput | null,
+  and?: Array< ModelMemberConditionInput | null > | null,
+  or?: Array< ModelMemberConditionInput | null > | null,
+  not?: ModelMemberConditionInput | null,
+};
+
+export type UpdateMemberInput = {
+  id: string,
+  eventId?: string | null,
+  userName?: string | null,
+};
+
+export type DeleteMemberInput = {
+  id: string,
+};
+
+export type CreateEventPostInput = {
+  id?: string | null,
+  eventId: string,
+  username?: string | null,
+  content: string,
+};
+
+export type ModelEventPostConditionInput = {
+  eventId?: ModelIDInput | null,
+  username?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  and?: Array< ModelEventPostConditionInput | null > | null,
+  or?: Array< ModelEventPostConditionInput | null > | null,
+  not?: ModelEventPostConditionInput | null,
+};
+
+export type UpdateEventPostInput = {
+  id: string,
+  eventId?: string | null,
+  username?: string | null,
+  content?: string | null,
+};
+
+export type DeleteEventPostInput = {
+  id: string,
+};
+
 export type ModelPostFilterInput = {
   id?: ModelIDInput | null,
   content?: ModelStringInput | null,
@@ -184,6 +335,48 @@ export type ModelCommentFilterInput = {
   and?: Array< ModelCommentFilterInput | null > | null,
   or?: Array< ModelCommentFilterInput | null > | null,
   not?: ModelCommentFilterInput | null,
+};
+
+export type ModelEventFilterInput = {
+  id?: ModelIDInput | null,
+  owner?: ModelStringInput | null,
+  title?: ModelStringInput | null,
+  Description?: ModelStringInput | null,
+  Date?: ModelStringInput | null,
+  Time_start?: ModelStringInput | null,
+  Time_end?: ModelStringInput | null,
+  theme?: ModelStringInput | null,
+  Municipal?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  status?: ModelPostStatusInput | null,
+  and?: Array< ModelEventFilterInput | null > | null,
+  or?: Array< ModelEventFilterInput | null > | null,
+  not?: ModelEventFilterInput | null,
+};
+
+export type ModelEventConnection = {
+  __typename: "ModelEventConnection",
+  items?:  Array<Event | null > | null,
+  nextToken?: string | null,
+};
+
+export type ModelMemberFilterInput = {
+  id?: ModelIDInput | null,
+  eventId?: ModelIDInput | null,
+  userName?: ModelStringInput | null,
+  and?: Array< ModelMemberFilterInput | null > | null,
+  or?: Array< ModelMemberFilterInput | null > | null,
+  not?: ModelMemberFilterInput | null,
+};
+
+export type ModelEventPostFilterInput = {
+  id?: ModelIDInput | null,
+  eventId?: ModelIDInput | null,
+  username?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  and?: Array< ModelEventPostFilterInput | null > | null,
+  or?: Array< ModelEventPostFilterInput | null > | null,
+  not?: ModelEventPostFilterInput | null,
 };
 
 export type ModelStringKeyConditionInput = {
@@ -349,6 +542,288 @@ export type DeleteCommentMutation = {
   } | null,
 };
 
+export type CreateEventMutationVariables = {
+  input: CreateEventInput,
+  condition?: ModelEventConditionInput | null,
+};
+
+export type CreateEventMutation = {
+  createEvent?:  {
+    __typename: "Event",
+    id: string,
+    owner: string,
+    title: string,
+    Description?: string | null,
+    Date: string,
+    Time_start?: string | null,
+    Time_end?: string | null,
+    member?:  {
+      __typename: "ModelMemberConnection",
+      nextToken?: string | null,
+    } | null,
+    post?:  {
+      __typename: "ModelEventPostConnection",
+      nextToken?: string | null,
+    } | null,
+    theme: string,
+    Municipal?: string | null,
+    createdAt?: string | null,
+    status?: PostStatus | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateEventMutationVariables = {
+  input: UpdateEventInput,
+  condition?: ModelEventConditionInput | null,
+};
+
+export type UpdateEventMutation = {
+  updateEvent?:  {
+    __typename: "Event",
+    id: string,
+    owner: string,
+    title: string,
+    Description?: string | null,
+    Date: string,
+    Time_start?: string | null,
+    Time_end?: string | null,
+    member?:  {
+      __typename: "ModelMemberConnection",
+      nextToken?: string | null,
+    } | null,
+    post?:  {
+      __typename: "ModelEventPostConnection",
+      nextToken?: string | null,
+    } | null,
+    theme: string,
+    Municipal?: string | null,
+    createdAt?: string | null,
+    status?: PostStatus | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteEventMutationVariables = {
+  input: DeleteEventInput,
+  condition?: ModelEventConditionInput | null,
+};
+
+export type DeleteEventMutation = {
+  deleteEvent?:  {
+    __typename: "Event",
+    id: string,
+    owner: string,
+    title: string,
+    Description?: string | null,
+    Date: string,
+    Time_start?: string | null,
+    Time_end?: string | null,
+    member?:  {
+      __typename: "ModelMemberConnection",
+      nextToken?: string | null,
+    } | null,
+    post?:  {
+      __typename: "ModelEventPostConnection",
+      nextToken?: string | null,
+    } | null,
+    theme: string,
+    Municipal?: string | null,
+    createdAt?: string | null,
+    status?: PostStatus | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateMemberMutationVariables = {
+  input: CreateMemberInput,
+  condition?: ModelMemberConditionInput | null,
+};
+
+export type CreateMemberMutation = {
+  createMember?:  {
+    __typename: "Member",
+    id: string,
+    eventId: string,
+    userName: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateMemberMutationVariables = {
+  input: UpdateMemberInput,
+  condition?: ModelMemberConditionInput | null,
+};
+
+export type UpdateMemberMutation = {
+  updateMember?:  {
+    __typename: "Member",
+    id: string,
+    eventId: string,
+    userName: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteMemberMutationVariables = {
+  input: DeleteMemberInput,
+  condition?: ModelMemberConditionInput | null,
+};
+
+export type DeleteMemberMutation = {
+  deleteMember?:  {
+    __typename: "Member",
+    id: string,
+    eventId: string,
+    userName: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateEventPostMutationVariables = {
+  input: CreateEventPostInput,
+  condition?: ModelEventPostConditionInput | null,
+};
+
+export type CreateEventPostMutation = {
+  createEventPost?:  {
+    __typename: "EventPost",
+    id: string,
+    eventId: string,
+    username?: string | null,
+    content: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateEventPostMutationVariables = {
+  input: UpdateEventPostInput,
+  condition?: ModelEventPostConditionInput | null,
+};
+
+export type UpdateEventPostMutation = {
+  updateEventPost?:  {
+    __typename: "EventPost",
+    id: string,
+    eventId: string,
+    username?: string | null,
+    content: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteEventPostMutationVariables = {
+  input: DeleteEventPostInput,
+  condition?: ModelEventPostConditionInput | null,
+};
+
+export type DeleteEventPostMutation = {
+  deleteEventPost?:  {
+    __typename: "EventPost",
+    id: string,
+    eventId: string,
+    username?: string | null,
+    content: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetPostQueryVariables = {
   id: string,
 };
@@ -441,6 +916,168 @@ export type ListCommentsQuery = {
   } | null,
 };
 
+export type GetEventQueryVariables = {
+  id: string,
+};
+
+export type GetEventQuery = {
+  getEvent?:  {
+    __typename: "Event",
+    id: string,
+    owner: string,
+    title: string,
+    Description?: string | null,
+    Date: string,
+    Time_start?: string | null,
+    Time_end?: string | null,
+    member?:  {
+      __typename: "ModelMemberConnection",
+      nextToken?: string | null,
+    } | null,
+    post?:  {
+      __typename: "ModelEventPostConnection",
+      nextToken?: string | null,
+    } | null,
+    theme: string,
+    Municipal?: string | null,
+    createdAt?: string | null,
+    status?: PostStatus | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListEventsQueryVariables = {
+  filter?: ModelEventFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListEventsQuery = {
+  listEvents?:  {
+    __typename: "ModelEventConnection",
+    items?:  Array< {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetMemberQueryVariables = {
+  id: string,
+};
+
+export type GetMemberQuery = {
+  getMember?:  {
+    __typename: "Member",
+    id: string,
+    eventId: string,
+    userName: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListMembersQueryVariables = {
+  filter?: ModelMemberFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListMembersQuery = {
+  listMembers?:  {
+    __typename: "ModelMemberConnection",
+    items?:  Array< {
+      __typename: "Member",
+      id: string,
+      eventId: string,
+      userName: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetEventPostQueryVariables = {
+  id: string,
+};
+
+export type GetEventPostQuery = {
+  getEventPost?:  {
+    __typename: "EventPost",
+    id: string,
+    eventId: string,
+    username?: string | null,
+    content: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListEventPostsQueryVariables = {
+  filter?: ModelEventPostFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListEventPostsQuery = {
+  listEventPosts?:  {
+    __typename: "ModelEventPostConnection",
+    items?:  Array< {
+      __typename: "EventPost",
+      id: string,
+      eventId: string,
+      username?: string | null,
+      content: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type ListPostsSortedByCreatedAtQueryVariables = {
   status?: PostStatus | null,
   createdAt?: ModelStringKeyConditionInput | null,
@@ -461,6 +1098,37 @@ export type ListPostsSortedByCreatedAtQuery = {
       image?: string | null,
       status: PostStatus,
       createdAt?: string | null,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type ListEventsSortedByCreatedAtQueryVariables = {
+  status?: PostStatus | null,
+  createdAt?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelEventFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListEventsSortedByCreatedAtQuery = {
+  listEventsSortedByCreatedAt?:  {
+    __typename: "ModelEventConnection",
+    items?:  Array< {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
       updatedAt: string,
     } | null > | null,
     nextToken?: string | null,
@@ -577,6 +1245,243 @@ export type OnDeleteCommentSubscription = {
       image?: string | null,
       status: PostStatus,
       createdAt?: string | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateEventSubscription = {
+  onCreateEvent?:  {
+    __typename: "Event",
+    id: string,
+    owner: string,
+    title: string,
+    Description?: string | null,
+    Date: string,
+    Time_start?: string | null,
+    Time_end?: string | null,
+    member?:  {
+      __typename: "ModelMemberConnection",
+      nextToken?: string | null,
+    } | null,
+    post?:  {
+      __typename: "ModelEventPostConnection",
+      nextToken?: string | null,
+    } | null,
+    theme: string,
+    Municipal?: string | null,
+    createdAt?: string | null,
+    status?: PostStatus | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateEventSubscription = {
+  onUpdateEvent?:  {
+    __typename: "Event",
+    id: string,
+    owner: string,
+    title: string,
+    Description?: string | null,
+    Date: string,
+    Time_start?: string | null,
+    Time_end?: string | null,
+    member?:  {
+      __typename: "ModelMemberConnection",
+      nextToken?: string | null,
+    } | null,
+    post?:  {
+      __typename: "ModelEventPostConnection",
+      nextToken?: string | null,
+    } | null,
+    theme: string,
+    Municipal?: string | null,
+    createdAt?: string | null,
+    status?: PostStatus | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteEventSubscription = {
+  onDeleteEvent?:  {
+    __typename: "Event",
+    id: string,
+    owner: string,
+    title: string,
+    Description?: string | null,
+    Date: string,
+    Time_start?: string | null,
+    Time_end?: string | null,
+    member?:  {
+      __typename: "ModelMemberConnection",
+      nextToken?: string | null,
+    } | null,
+    post?:  {
+      __typename: "ModelEventPostConnection",
+      nextToken?: string | null,
+    } | null,
+    theme: string,
+    Municipal?: string | null,
+    createdAt?: string | null,
+    status?: PostStatus | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateMemberSubscription = {
+  onCreateMember?:  {
+    __typename: "Member",
+    id: string,
+    eventId: string,
+    userName: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateMemberSubscription = {
+  onUpdateMember?:  {
+    __typename: "Member",
+    id: string,
+    eventId: string,
+    userName: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteMemberSubscription = {
+  onDeleteMember?:  {
+    __typename: "Member",
+    id: string,
+    eventId: string,
+    userName: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateEventPostSubscription = {
+  onCreateEventPost?:  {
+    __typename: "EventPost",
+    id: string,
+    eventId: string,
+    username?: string | null,
+    content: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateEventPostSubscription = {
+  onUpdateEventPost?:  {
+    __typename: "EventPost",
+    id: string,
+    eventId: string,
+    username?: string | null,
+    content: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteEventPostSubscription = {
+  onDeleteEventPost?:  {
+    __typename: "EventPost",
+    id: string,
+    eventId: string,
+    username?: string | null,
+    content: string,
+    event?:  {
+      __typename: "Event",
+      id: string,
+      owner: string,
+      title: string,
+      Description?: string | null,
+      Date: string,
+      Time_start?: string | null,
+      Time_end?: string | null,
+      theme: string,
+      Municipal?: string | null,
+      createdAt?: string | null,
+      status?: PostStatus | null,
       updatedAt: string,
     } | null,
     createdAt: string,
