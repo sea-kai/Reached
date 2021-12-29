@@ -1,7 +1,7 @@
 import React, { VFC } from 'react';
 import { Layout } from 'src/components/templates/Layout'
 
-const DeployTest: VFC = () => {
+export const DeployTest: VFC = () => {
   return (
     <Layout title='DeployTest'>
       <div>
