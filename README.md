@@ -10,8 +10,18 @@
 
 # 使用技術
 ## フロントエンド
-TypeScript, React, Next.js, TailwindCSS
+| カテゴリ | 技術 |
+| --- | --- |
+| 言語 | TypeScript, JavaScript, CSS |
+| ライブラリ | React.js, TailWind CSS, React Datepicker |
+| フレームワーク | Next.js |
+
 ## バックエンド
-Amplify, DynamoDB, GraphQL, Cognito
+| カテゴリ | 技術 |
+| --- | --- |
+| データベース | DynamoDB|
+| 言語 | GraphQL, Node.js |
+| プラットフォーム | Amplify |
+| その他サービス | AppSync, Cognito |
 
 Figma: https://www.figma.com/file/5AP8yWU9TkaUoamXYKALcY/Reached?node-id=4%3A0
