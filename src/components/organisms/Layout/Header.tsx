@@ -27,9 +27,6 @@ export const Header: VFC = () => {
                 ログイン
               </a>
             </Link>
-            <Link href='DeployTest'>
-              <a>デプロイテスト</a>
-            </Link>
           </div>
         </nav>
       </header>
