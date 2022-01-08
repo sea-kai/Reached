@@ -6,12 +6,12 @@ import { LayoutType } from 'src/types';
 
 export const Layout = ({children, title = 'Reached'}: LayoutType): React.ReactElement=> {
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen font-mono text-sm text-gray-600 bg-white'>
+    <div className = 'flex flex-col justify-center items-center min-h-screen font-mono text-sm text-gray-600 bg-white'>
       <Head>
         <title>{title}</title>
       </Head>
       <Header />
-      <main className='flex flex-col flex-1 mt-32 w-screen'>
+      <main className='flex flex-col flex-1 mx-32 mt-24 '>
         {children}
       </main>
       <footer className='flex justify-center items-start w-full h-12 border-t'>
