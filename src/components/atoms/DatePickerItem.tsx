@@ -15,7 +15,7 @@ export const DatePickerItem = (props: Props): JSX.Element => {
   return (
     <div >
       <DatePicker
-      className='ml-2 h-7 border border-black'
+        className='ml-2 h-7 border border-black'
         locale = {ja}
         dateFormat = "yyyy-MM-dd"
         selected = {props.selected}
