@@ -12,7 +12,7 @@ export const TimePickerItem = (props: Props): JSX.Element => {
   return (
     <div >
       <TimePicker
-        className='w-56 h-7'
+        className='w-56 md:w-36 h-7'
         autoFocus = {true}
         onChange = {props.onChange}
         value = {props.value}
