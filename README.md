@@ -25,3 +25,5 @@
 | その他サービス | AppSync, Cognito |
 
 Figma: https://www.figma.com/file/5AP8yWU9TkaUoamXYKALcY/Reached?node-id=4%3A0
+
+ER図: [Reached.ER.pdf](https://github.com/sea-kai/Reached/files/8026984/Reached.ER.pdf)
