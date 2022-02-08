@@ -5,6 +5,7 @@ import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import { vocabularies } from 'src/assets/amplify/vocabularies';
 import { Layout } from 'src/components/templates/Layout';
 import awsmobile from 'src/aws-exports';
+import Home from '.';
 
 
 I18n.putVocabularies(vocabularies);
@@ -24,12 +25,7 @@ const Login: any = () => {
 
   return (
     authState === AuthState.SignedIn && user ? (
-    <Layout title='Login'>
-    <div>
-      <AmplifySignOut />
-      <h2>ログイン後の画面</h2>
-    </div>
-    </Layout>
+      <Home />
   ) : (
     <Layout title='Login'>
       <AmplifyAuthContainer>
@@ -39,7 +35,6 @@ const Login: any = () => {
               formFields={[
                 { type: 'username' },
                 { type: 'password' },
-                { type: 'email' },
               ]} />
           </AmplifyAuthenticator>
       </AmplifyAuthContainer>
