@@ -1,28 +1,24 @@
 import React, { useState, VFC } from 'react';
+
 import { Layout } from 'src/components/templates/Layout';
 import { Description } from 'src/components/atoms/Description';
 import { StudyGroupDescription } from 'src/assets/DescriptionData';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { EventInput } from 'src/components/organisms/EventInput';
 
 
 const StudyGroup: VFC = () => {
-  const [startDate, setStartDate] = useState(new Date());
   return (
-    <Layout title='StudyGroup'>
-      <div className = 'flex flex-col'>
-        <div className='flex flex-row justify-between w-screen'>
-          <Description title={StudyGroupDescription.title} text={StudyGroupDescription.text}/>
-          <img className='w-2/5' src='/undraw_Conversation.png' alt='studyGroup' />
+    <Layout title = 'StudyGroup'>
+      <div className = ' w-full '>
+      <div className = 'justify-center items-center w-full'>
+        <div className = 'flex flex-row justify-between'>
+          <Description title = {StudyGroupDescription.title} text = {StudyGroupDescription.text}/>
+          <img src = '/undraw_Conversation.png' alt = 'studyGroup' width = '40%'/>
         </div>
-        <div className='flex flex-row w-8'>
-          <DatePicker
-          dateFormat="yyyy/MM/dd"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          fixedHeight
-          />
+        <div className = 'flex flex-row'>
+          <EventInput />
         </div>
+      </div>
       </div>
     </Layout>
   )
